@@ -4,7 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/style.css" />
     <title>Free Code Camp Challenge | URL Shortener Microservice</title>
   </head>
-  <body></body>
+  <body>
+    <h1>URL Shortener Microservice</h1>
+    <p>
+      Type a URL into the text box below, then click "Submit" to generate a
+      short URL which will redirect you to the URL you submitted.
+    </p>
+    <form class="url-form">
+      <input
+        type="text"
+        name="long-url"
+        id="long-url"
+        aria-label="Enter a URL"
+        placeholder="Enter a URL"
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+    <p class="result">Your shortened URL will appear here.</p>
+    <p>
+      Coded by
+      <a href="https://dgdev1024.com" target="_blank">Dennis Griffin</a>
+    </p>
+    <script src="/public/script.js"></script>
+  </body>
 </html>

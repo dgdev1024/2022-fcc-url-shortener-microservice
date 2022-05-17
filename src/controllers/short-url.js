@@ -9,7 +9,7 @@ const urlRegex =
 
 module.exports = {
   async post(req, res) {
-    const { original_url, short_url } = req.body;
+    let { original_url, short_url } = req.body;
 
     if (urlRegex.test(original_url) === false) {
       return res.status(400).json({ error: "invalid url" });
@@ -24,18 +24,18 @@ module.exports = {
       shortUrl: short_url,
     });
 
-    console.log(postedUrl);
-
     return res.status(200).json({
       original_url: postedUrl.originalUrl,
-      short_url: postedUrl.shortUrl,
+      short_url: `${req.protocol}://${req.get("host")}/api/shorturl/${
+        postedUrl.shortUrl
+      }`,
     });
   },
 
   async get(req, res) {
     const { id } = req.params;
 
-    const postedUrl = await shortUrlSchema.findOne({ short_url: id });
+    const postedUrl = await shortUrlSchema.findOne({ shortUrl: id });
     if (!postedUrl) {
       return res.status(404).json({ error: "url not found" });
     }
