@@ -26,7 +26,7 @@ module.exports = {
 
     return res.status(200).json({
       original_url: postedUrl.originalUrl,
-      short_url: `${req.protocol}://${req.get("host")}/api/shorturl/${
+      short_url: `https://${req.get("host")}/api/shorturl/${
         postedUrl.shortUrl
       }`,
     });
@@ -40,6 +40,7 @@ module.exports = {
       return res.status(404).json({ error: "url not found" });
     }
 
+    console.log(postedUrl);
     return res.redirect(postedUrl.originalUrl);
   },
 };
