@@ -11,7 +11,7 @@ URLForm.addEventListener("submit", async (ev) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      original_url: URLInput.value,
+      url: URLInput.value,
     }),
   });
 
@@ -21,6 +21,6 @@ URLForm.addEventListener("submit", async (ev) => {
     console.error(data.error);
     URLResult.innerHTML = "The URL you submitted is invalid.";
   } else {
-    URLResult.innerHTML = `Your shortened URL is: <a href="${data.short_url}" target="_blank">${data.short_url}</a>.`;
+    URLResult.innerHTML = `Your shortened URL is: <a href="${data.short_url_full}" target="_blank">${data.short_url_full}</a>.`;
   }
 });

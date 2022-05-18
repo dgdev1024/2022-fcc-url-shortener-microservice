@@ -17,6 +17,6 @@ router.post("/shorturl", ShortUrl.post);
 //
 // If a valid short URL is given, redirects the user to the destination URL to
 // which the short URL is bound.
-router.get("/shorturl/:id", ShortUrl.get);
+router.get("/shorturl/:short_url", ShortUrl.get);
 
 module.exports = router;
